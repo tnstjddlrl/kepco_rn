@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "135745042170",
+    "project_id": "kepco-2d265",
+    "storage_bucket": "kepco-2d265.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135745042170:android:b7990ecc142264be8a7b43",
+        "android_client_info": {
+          "package_name": "com.semicolons.kepco"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135745042170-uilu62o1ihrkebithrt3gbcl4ac42102.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7gAduC5HsIZuyrPbZCaeE57JqRQFTU1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135745042170-uilu62o1ihrkebithrt3gbcl4ac42102.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
