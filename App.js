@@ -19,10 +19,15 @@ import RNExitApp from 'react-native-exit-app';
 
 import messaging from '@react-native-firebase/messaging';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 var rnw
 var cbc = false;
 
 const App = () => {
+
+  const [uri, setUri] = useState({ uri: 'http://ip1002.hostingbox.co.kr/' })
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
@@ -48,10 +53,38 @@ const App = () => {
 
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
+
+      console.log(remoteMessage)
+
       Alert.alert(JSON.stringify(remoteMessage.notification.title).replace(/"/gi, ""), JSON.stringify(remoteMessage.notification.body).replace(/"/gi, ""));
+
     });
 
     return unsubscribe;
+  }, []);
+
+  useEffect(() => {
+
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.data.url,
+      );
+      setUri({ uri: remoteMessage.data.url });
+    });
+
+    messaging()
+      .getInitialNotification()
+      .then(remoteMessage => {
+        if (remoteMessage) {
+          console.log(
+            'Notification caused app to open from quit state:',
+            remoteMessage.data.url,
+          );
+          setUri({ uri: remoteMessage.data.url });
+        }
+
+      });
   }, []);
 
   const [pushToken, setPushToken] = useState('')
@@ -113,7 +146,7 @@ const App = () => {
       }}
       onLoadEnd={() => {
       }}
-      source={{ uri: 'http://ip1002.hostingbox.co.kr/' }}
+      source={uri}
       style={{ width: '100%', height: '100%' }}
       onNavigationStateChange={(navState) => { cbc = navState.canGoBack; }}
     />
