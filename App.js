@@ -19,7 +19,6 @@ import RNExitApp from 'react-native-exit-app';
 
 import messaging from '@react-native-firebase/messaging';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 var rnw
