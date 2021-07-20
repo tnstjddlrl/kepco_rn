@@ -24,6 +24,19 @@ import messaging from '@react-native-firebase/messaging';
 var rnw
 var cbc = false;
 
+async function requestUserPermission() {
+  const authStatus = await messaging().requestPermission();
+  const enabled =
+    authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+  if (enabled) {
+    console.log('Authorization status:', authStatus);
+  }
+}
+
+
+
 const App = () => {
 
   const [uri, setUri] = useState({ uri: 'http://ip1002.hostingbox.co.kr/' })
@@ -131,6 +144,7 @@ const App = () => {
   }, [pushToken, isAuthorized])
 
   useEffect(() => {
+    requestUserPermission()
     try {
       handlePushToken()
       saveDeviceToken()
@@ -157,6 +171,7 @@ const App = () => {
   }
 
   return (
+    <SafeAreaView style={{flex:1}}>
     <WebView
       ref={wb => { rnw = wb }}
       onMessage={event => {
@@ -165,9 +180,11 @@ const App = () => {
       onLoadEnd={() => {
       }}
       source={uri}
+      originWhitelist={['https://*','http://*',]}
       style={{ width: '100%', height: '100%' }}
       onNavigationStateChange={(navState) => { cbc = navState.canGoBack; }}
     />
+    </SafeAreaView>
   )
 }
 

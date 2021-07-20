@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>135745042170-ct8ugqi8rkin9eucu9h0v58ck9e8p8rr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.135745042170-ct8ugqi8rkin9eucu9h0v58ck9e8p8rr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC5Qp1a4yWpPMPkc2jdFvzcK3xpp8ZF-kY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>135745042170</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.semicolons.kepco</string>
+	<key>PROJECT_ID</key>
+	<string>kepco-2d265</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kepco-2d265.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:135745042170:ios:fff149fcfebdf7198a7b43</string>
+</dict>
+</plist>
