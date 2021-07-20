@@ -58,6 +58,12 @@ const App = () => {
 
       Alert.alert(JSON.stringify(remoteMessage.notification.title).replace(/"/gi, ""), JSON.stringify(remoteMessage.notification.body).replace(/"/gi, ""));
 
+
+      setUri({ uri: 'http://ip1002.hostingbox.co.kr/' });
+      setTimeout(() => {
+        setUri({ uri: remoteMessage.data.url });
+      }, 500);
+
     });
 
     return unsubscribe;
@@ -70,7 +76,11 @@ const App = () => {
         'Notification caused app to open from background state:',
         remoteMessage.data.url,
       );
-      setUri({ uri: remoteMessage.data.url });
+
+      setUri({ uri: 'http://ip1002.hostingbox.co.kr/' });
+      setTimeout(() => {
+        setUri({ uri: remoteMessage.data.url });
+      }, 500);
     });
 
     messaging()
@@ -83,7 +93,6 @@ const App = () => {
           );
           setUri({ uri: remoteMessage.data.url });
         }
-
       });
   }, []);
 
