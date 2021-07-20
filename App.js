@@ -56,13 +56,23 @@ const App = () => {
 
       console.log(remoteMessage)
 
-      Alert.alert(JSON.stringify(remoteMessage.notification.title).replace(/"/gi, ""), JSON.stringify(remoteMessage.notification.body).replace(/"/gi, ""));
+      Alert.alert(JSON.stringify(remoteMessage.notification.title).replace(/"/gi, ""), JSON.stringify(remoteMessage.notification.body).replace(/"/gi, ""), [
+        {
+          text: "닫기",
+          onPress: () => console.log("Cancel Pressed")
+        },
+        {
+          text: "확인", onPress: () => {
+            setUri({ uri: 'http://ip1002.hostingbox.co.kr/' });
+            setTimeout(() => {
+              setUri({ uri: remoteMessage.data.url });
+            }, 100);
+          }
+        }
+      ]);
 
 
-      setUri({ uri: 'http://ip1002.hostingbox.co.kr/' });
-      setTimeout(() => {
-        setUri({ uri: remoteMessage.data.url });
-      }, 500);
+
 
     });
 
