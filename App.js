@@ -156,6 +156,7 @@ const App = () => {
       console.log(error)
       Alert.alert('토큰 받아오기 실패')
     }
+
   }, [])
 
   function onMessage(event) {
@@ -171,19 +172,19 @@ const App = () => {
   }
 
   return (
-    <SafeAreaView style={{flex:1}}>
-    <WebView
-      ref={wb => { rnw = wb }}
-      onMessage={event => {
-        onMessage(event)
-      }}
-      onLoadEnd={() => {
-      }}
-      source={uri}
-      originWhitelist={['https://*','http://*',]}
-      style={{ width: '100%', height: '100%' }}
-      onNavigationStateChange={(navState) => { cbc = navState.canGoBack; }}
-    />
+    <SafeAreaView style={{ flex: 1 }}>
+      <WebView
+        ref={wb => { rnw = wb }}
+        onMessage={event => {
+          onMessage(event)
+        }}
+        onLoadEnd={() => {
+        }}
+        source={uri}
+        originWhitelist={['https://*', 'http://*',]}
+        style={{ width: '100%', height: '100%' }}
+        onNavigationStateChange={(navState) => { cbc = navState.canGoBack; }}
+      />
     </SafeAreaView>
   )
 }
