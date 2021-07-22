@@ -19,8 +19,6 @@ import RNExitApp from 'react-native-exit-app';
 
 import messaging from '@react-native-firebase/messaging';
 
-
-
 var rnw
 var cbc = false;
 
@@ -102,7 +100,7 @@ const App = () => {
       setUri({ uri: 'http://ip1002.hostingbox.co.kr/' });
       setTimeout(() => {
         setUri({ uri: remoteMessage.data.url });
-      }, 500);
+      }, 300);
     });
 
     messaging()
