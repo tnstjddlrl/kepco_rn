@@ -81,7 +81,36 @@ const App = () => {
         }
       ]);
 
-
+      if(Platform.OS =='ios'){
+        PushNotification.localNotificationSchedule({
+          channelId: "fcm_alert",
+          ticker: "My Notification Ticker",
+          vibrate: true, // (optional) default: true
+          vibration: 300,
+          group: "dgroup", // (optional) add group to message
+          priority: "max", // (optional) set notification priority, default: high
+          visibility: "public", // (optional) set notification visibility, default: private
+          ignoreInForeground: false, // (optional) if true, the notification will not be visible when the app is in the foreground (useful for parity with how iOS notifications appear). should be used in combine with `com.dieam.reactnativepushnotification.notification_foreground` setting
+      
+          messageId: remoteMessage.messageId, // (optional) added as `message_id` to intent extras so opening push notification can find data stored by @react-native-firebase/messaging module. 
+      
+      
+          actions: ["Yes", "No"], // (Android only) See the doc for notification actions to know more
+          invokeApp: true, // (optional) This enable click on actions to bring back the application to foreground or stay in background, default: true
+          importance: Importance.HIGH,
+      
+          /* iOS and Android properties */
+          title: remoteMessage.notification.title, // (optional)
+          message: remoteMessage.notification.body, // (required)
+          playSound: true, // (optional) default: true
+          soundName: "default", // (optional) Sound to play when the notification is shown. Value of 'default' plays the default sound. It can be set to a custom sound such as 'android.resource://com.xyz/raw/my_sound'. It will look for the 'my_sound' audio file in 'res/raw' directory and play it. default: 'default' (default sound is played)
+      
+          date: new Date(Date.now()),
+          allowWhileIdle: true,
+          repeatTime: 1,
+      
+        });
+      }
 
 
     });

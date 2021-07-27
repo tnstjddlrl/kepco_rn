@@ -6,7 +6,7 @@ platform :ios, '10.0'
 $FirebaseSDKVersion = '8.0.0'
 
 pod 'Firebase/Analytics'
-
+pod 'Firebase/Messaging' 
 
 target 'kepco' do
   config = use_native_modules!
